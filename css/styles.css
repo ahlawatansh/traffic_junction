@@ -1,0 +1,279 @@
+/* ============================================================
+   Traffic Junction Simulator — Minimalist Light Theme
+   (Tailwind CSS is handling layout and base styling in HTML)
+   ============================================================ */
+
+/* --- Custom Scrollbars --- */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* --- JS Rendered Components: Mode Toggle --- */
+.mode-active {
+  color: #202124 !important;
+}
+
+/* --- JS Rendered Components: Gantt Chart --- */
+.gantt-wrapper {
+  display: flex;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
+
+.gantt-labels {
+  flex-shrink: 0;
+  width: 58px;
+  background: #f9fafb;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+}
+
+.gantt-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 0 4px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #6b7280;
+}
+
+.gantt-scroll {
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.gantt-timeline {
+  position: relative;
+  min-width: 100%;
+}
+
+.gantt-row {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.gantt-block {
+  position: absolute;
+  border-radius: 4px;
+  font-size: 9px;
+  font-weight: 600;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: inset 0 -2px 0 rgba(0,0,0,0.1);
+  transition: transform 0.15s, opacity 0.15s;
+}
+
+.gantt-block:hover {
+  opacity: 0.9;
+  z-index: 5;
+  transform: translateY(-1px);
+  box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.gantt-clearance {
+  border-radius: 3px;
+  background: #f9ab00 !important;
+  color: transparent !important;
+  box-shadow: none;
+}
+
+.gantt-time-axis {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+.gantt-time-marker {
+  position: absolute;
+  top: 3px;
+  font-size: 9px;
+  color: #9ca3af;
+  font-family: "JetBrains Mono", monospace;
+  transform: translateX(-50%);
+}
+
+/* --- JS Rendered Components: Stats Dashboard --- */
+.stats-global {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.stat-global-card {
+  flex: 1;
+  min-width: 100px;
+  text-align: center;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.stat-icon {
+  display: none; /* Hide emojis in stats */
+}
+
+.stat-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a73e8;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.stats-lanes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.stat-lane-card {
+  border-top: 3px solid;
+  background: #f9fafb;
+  border-radius: 8px;
+  border-left: 1px solid #e5e7eb;
+  border-right: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 12px;
+}
+
+.lane-card-header {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #374151;
+}
+
+.lane-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.lane-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lane-stat-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+}
+
+.lane-stat-label {
+  color: #6b7280;
+}
+
+.lane-stat-value {
+  font-weight: 600;
+  font-family: "JetBrains Mono", monospace;
+  color: #1f2937;
+}
+
+/* --- JS Rendered Components: Event Log --- */
+.log-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.log-count {
+  font-size: 11px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.log-table-wrap {
+  overflow-y: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.log-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  font-family: "JetBrains Mono", monospace;
+  text-align: left;
+}
+
+.log-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.log-table th {
+  background: #f9fafb;
+  color: #6b7280;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-bottom: 1px solid #e5e7eb;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 10px;
+}
+
+.log-table td {
+  padding: 6px 12px;
+  border-bottom: 1px solid #f3f4f6;
+  color: #374151;
+}
+
+.log-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+/* Force SVG to fill container */
+#junction-canvas-container svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
